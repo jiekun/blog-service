@@ -8,6 +8,7 @@ import (
 	"github.com/blog-service/global"
 	"github.com/blog-service/pkg/setting"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 type Model struct {
