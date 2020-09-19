@@ -29,6 +29,10 @@ func init() {
 	}
 }
 
+// @title 博客系统
+// @version 1.0
+// @description Jiekun Blog with go-gin
+// @termsOfService https://github.com/2014BDuck/blog-service
 func main() {
 	router := routers.NewRouter()
 	s := &http.Server{

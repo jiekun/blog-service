@@ -6,6 +6,7 @@ package model
 import (
 	"fmt"
 	"github.com/blog-service/global"
+	"github.com/blog-service/pkg/app"
 	"github.com/blog-service/pkg/setting"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -27,6 +28,11 @@ type Tag struct {
 	State uint8  `json:"state"`
 }
 
+type TagSwagger struct {
+	List  []*Tag
+	Pager *app.Pager
+}
+
 func (a Tag) TableName() string {
 	return "blog_tag"
 }
@@ -38,6 +44,11 @@ type Article struct {
 	Content       string `json:"content"`
 	CoverImageUrl string `json:"cover_image_url"`
 	State         uint8  `json:"state"`
+}
+
+type ArticleSwagger struct {
+	List  []*Article
+	Pager *app.Pager
 }
 
 func (a Article) TableName() string {
@@ -64,11 +75,11 @@ func NewDBEngine(databaseSetting *setting.DatabaseSettingS) (*gorm.DB, error) {
 		databaseSetting.ParseTime,
 	))
 
-	if err != nil{
+	if err != nil {
 		return nil, err
 	}
 
-	if global.ServerSetting.RunMode == "debug"{
+	if global.ServerSetting.RunMode == "debug" {
 		db.LogMode(true)
 	}
 
