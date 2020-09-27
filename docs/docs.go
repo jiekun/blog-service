@@ -82,7 +82,7 @@ var doc = `{
                     },
                     {
                         "description": "文章简介",
-                        "name": "desc",
+                        "name": "description",
                         "in": "body",
                         "schema": {
                             "type": "string"
@@ -241,7 +241,7 @@ var doc = `{
                     },
                     {
                         "description": "文章简介",
-                        "name": "desc",
+                        "name": "description",
                         "in": "body",
                         "schema": {
                             "type": "string"
@@ -621,7 +621,7 @@ var doc = `{
                 "deleted_on": {
                     "type": "integer"
                 },
-                "desc": {
+                "description": {
                     "type": "string"
                 },
                 "id": {

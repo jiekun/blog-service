@@ -13,6 +13,11 @@ import (
 	"time"
 )
 
+const (
+	StateOpen  = 1
+	StateClose = 0
+)
+
 type Model struct {
 	ID         uint32 `gorm:"primary_key" json:"id"`
 	CreatedBy  string `json:"created_by"`
@@ -41,7 +46,7 @@ func (t Tag) TableName() string {
 type Article struct {
 	*Model
 	Title         string `json:"title"`
-	Desc          string `json:"desc"`
+	Description   string `json:"description"`
 	Content       string `json:"content"`
 	CoverImageUrl string `json:"cover_image_url"`
 	State         uint8  `json:"state"`
@@ -64,6 +69,17 @@ type ArticleTag struct {
 
 func (a ArticleTag) TableName() string {
 	return "blog_article_tag"
+}
+
+// Article关联Tag结构
+type ArticleRow struct {
+	ArticleID          uint32
+	TagID              uint32
+	TagName            string
+	ArticleTitle       string
+	ArticleDescription string
+	CoverImageUrl      string
+	Content            string
 }
 
 func NewDBEngine(databaseSetting *setting.DatabaseSettingS) (*gorm.DB, error) {

@@ -14,7 +14,7 @@ create table blog_tag (
 create table blog_article (
     id int unsigned not null auto_increment,
     title varchar(100) default '' comment '文章标题',
-    desc varchar(255) default '' comment '文章简述',
+    description varchar(255) default '' comment '文章简述',
     cover_image_url varchar(255) default '' comment '封面图片地址',
     content longtext comment '文章内容',
     created_on int unsigned default 0 comment '创建时间',
