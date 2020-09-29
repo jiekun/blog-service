@@ -14,3 +14,4 @@
 # Custom
 .idea/*
 *.log
+storage/
