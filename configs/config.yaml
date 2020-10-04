@@ -16,6 +16,7 @@ App:
     - .jpg
     - .jpeg
     - .png
+  DefaultContextTimeout: 60
 Database:
   DBType: mysql
   Username: blog-service

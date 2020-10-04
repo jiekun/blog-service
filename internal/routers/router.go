@@ -34,7 +34,7 @@ func NewRouter() *gin.Engine {
 		r.Use(middleware.Recovery())
 	}
 	r.Use(middleware.RateLimiter(methodLimiters))
-	r.Use(middleware.ContextTimeout(60 * time.Second))
+	r.Use(middleware.ContextTimeout(global.AppSetting.DefaultContextTimeout))
 	r.Use(middleware.Translations())
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	article := v1.NewArticle()
