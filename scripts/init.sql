@@ -39,3 +39,16 @@ create table blog_article_tag (
     is_del tinyint unsigned default 0 comment '是否删除 0-未删除 1-已删除',
     primary key(id)
 )engine=innodb default charset=utf8mb4 comment='文章标签关联';
+
+create table blog_auth (
+    id int unsigned not null auto_increment,
+    app_key varchar(20) default '' comment 'Key',
+    app_secret varchar(50) default '' comment 'Secret',
+    created_on int unsigned default 0 comment '创建时间',
+    created_by varchar(100) default '' comment '创建人',
+    modified_on int unsigned default 0 comment '修改时间',
+    modified_by varchar(100) default '' comment '修改人',
+    deleted_on int unsigned default 0 comment '删除时间',
+    is_del tinyint unsigned default 0 comment '是否删除 0-未删除 1-已删除',
+    primary key(id)
+)engine=innodb default charset=utf8mb4 comment'认证管理';

@@ -4,18 +4,18 @@ Server:
   ReadTimeout: 60
   WriteTimeout: 60
 App:
-   DefaultPageSize: 10
-   MaxPageSize: 100
-   LogSavePath: storage/logs
-   LogFileName: app
-   LogFileExt: .log
-   UploadSavePath: storage/uploads
-   UploadServerUrl: http://localhost:8001/static
-   UploadImageMaxSize: 5  # MB
-   UploadImageAllowExts:
-     - .jpg
-     - .jpeg
-     - .png
+  DefaultPageSize: 10
+  MaxPageSize: 100
+  LogSavePath: storage/logs
+  LogFileName: app
+  LogFileExt: .log
+  UploadSavePath: storage/uploads
+  UploadServerUrl: http://localhost:8001/static
+  UploadImageMaxSize: 5  # MB
+  UploadImageAllowExts:
+    - .jpg
+    - .jpeg
+    - .png
 Database:
   DBType: mysql
   Username: blog-service
@@ -27,3 +27,7 @@ Database:
   ParseTime: True
   MaxIdleConns: 10
   MaxOpenConns: 30
+JWT:
+  secret: nginx
+  Issuer: blog-service
+  Expire: 7200
