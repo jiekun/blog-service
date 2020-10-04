@@ -31,3 +31,12 @@ JWT:
   secret: nginx
   Issuer: blog-service
   Expire: 7200
+Email:
+  Host: stmp.qq.com
+  Port: 465
+  UserName: 136986560@qq.com
+  Password: test
+  IsSSL: true
+  From: 136986560@qq.com
+  To:
+    - 136986560@qq.com
