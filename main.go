@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"github.com/blog-service/global"
 	"github.com/blog-service/internal/model"
@@ -11,7 +12,10 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"
+	"os"
+	"os/signal"
 	"strings"
+	"syscall"
 	"time"
 )
 
@@ -61,8 +65,24 @@ func main() {
 		WriteTimeout:   global.ServerSetting.WriteTimeout,
 		MaxHeaderBytes: 1 << 20,
 	}
-	s.ListenAndServe()
+	go func() {
+		if err := s.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("s.ListenAndServe err: %v", err)
+		}
+	}()
 
+	quit := make(chan os.Signal)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	log.Println("Shuting down server...")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	if err := s.Shutdown(ctx); err != nil {
+		log.Fatalf("Server forced to shutdown: %v", err)
+	}
+
+	log.Println("Server exiting")
 }
 
 func setupSetting() error {
