@@ -12,7 +12,7 @@ type Article struct {
 	ID            uint32 `json:"id"`
 	TagID         uint32 `json:"tag_id"`
 	Title         string `json:"title"`
-	Description          string `json:"description"`
+	Description   string `json:"description"`
 	Content       string `json:"content"`
 	CoverImageUrl string `json:"cover_image_url"`
 	CreatedBy     string `json:"created_by"`
@@ -23,7 +23,7 @@ type Article struct {
 func (d *Dao) CreateArticle(param *Article) (*model.Article, error) {
 	article := model.Article{
 		Title:         param.Title,
-		Description:          param.Description,
+		Description:   param.Description,
 		Content:       param.Content,
 		CoverImageUrl: param.CoverImageUrl,
 		State:         param.State,

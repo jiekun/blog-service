@@ -84,8 +84,6 @@ func (a Article) CountByTagID(db *gorm.DB, tagID uint32) (int, error) {
 	return count, nil
 }
 
-
-
 func (a ArticleTag) Create(db *gorm.DB) error {
 	if err := db.Create(&a).Error; err != nil {
 		return err

@@ -98,13 +98,13 @@ paths:
   /api/v1/article/{id}:
     get:
       parameters:
-      - description: 文章ID
-        in: query
-        name: id
-        required: true
-        type: integer
+        - description: 文章ID
+          in: query
+          name: id
+          required: true
+          type: integer
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: 成功
@@ -122,50 +122,50 @@ paths:
   /api/v1/articles:
     post:
       parameters:
-      - description: 文章标题
-        in: body
-        name: title
-        required: true
-        schema:
-          type: string
-      - description: 文章简介
-        in: body
-        name: desc
-        schema:
-          type: string
-      - description: 文章内容
-        in: body
-        name: content
-        schema:
-          type: string
-      - description: 文章缩略图
-        in: body
-        name: cover_image_url
-        schema:
-          type: string
-      - description: 标签ID
-        in: body
-        name: tag_id
-        schema:
-          type: integer
-      - default: 1
-        description: 状态
-        enum:
-        - 0
-        - 1
-        in: body
-        name: state
-        schema:
-          type: integer
-      - description: 创建者
-        in: body
-        maxLength: 100
-        minLength: 3
-        name: created_by
-        schema:
-          type: string
+        - description: 文章标题
+          in: body
+          name: title
+          required: true
+          schema:
+            type: string
+        - description: 文章简介
+          in: body
+          name: desc
+          schema:
+            type: string
+        - description: 文章内容
+          in: body
+          name: content
+          schema:
+            type: string
+        - description: 文章缩略图
+          in: body
+          name: cover_image_url
+          schema:
+            type: string
+        - description: 标签ID
+          in: body
+          name: tag_id
+          schema:
+            type: integer
+        - default: 1
+          description: 状态
+          enum:
+            - 0
+            - 1
+          in: body
+          name: state
+          schema:
+            type: integer
+        - description: 创建者
+          in: body
+          maxLength: 100
+          minLength: 3
+          name: created_by
+          schema:
+            type: string
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: 成功
@@ -183,14 +183,14 @@ paths:
   /api/v1/articles/{id}:
     delete:
       parameters:
-      - description: 文章ID
-        in: body
-        name: id
-        required: true
-        schema:
-          type: integer
+        - description: 文章ID
+          in: body
+          name: id
+          required: true
+          schema:
+            type: integer
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: 成功
@@ -207,28 +207,28 @@ paths:
       summary: 删除文章
     get:
       parameters:
-      - description: 文章关键字
-        in: query
-        name: name
-        type: string
-      - default: 1
-        description: 状态
-        enum:
-        - 0
-        - 1
-        in: query
-        name: state
-        type: integer
-      - description: 页码
-        in: query
-        name: page
-        type: integer
-      - description: 每页数量
-        in: query
-        name: page_size
-        type: integer
+        - description: 文章关键字
+          in: query
+          name: name
+          type: string
+        - default: 1
+          description: 状态
+          enum:
+            - 0
+            - 1
+          in: query
+          name: state
+          type: integer
+        - description: 页码
+          in: query
+          name: page
+          type: integer
+        - description: 每页数量
+          in: query
+          name: page_size
+          type: integer
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: 成功
@@ -245,55 +245,55 @@ paths:
       summary: 获取多篇文章
     put:
       parameters:
-      - description: 文章ID
-        in: body
-        name: id
-        required: true
-        schema:
-          type: integer
-      - description: 文章标题
-        in: body
-        name: title
-        schema:
-          type: string
-      - description: 文章简介
-        in: body
-        name: desc
-        schema:
-          type: string
-      - description: 文章内容
-        in: body
-        name: content
-        schema:
-          type: string
-      - description: 文章缩略图
-        in: body
-        name: cover_image_url
-        schema:
-          type: string
-      - description: 标签ID
-        in: body
-        name: tag_id
-        schema:
-          type: integer
-      - description: 修改者
-        in: body
-        maxLength: 100
-        minLength: 3
-        name: modified_by
-        schema:
-          type: string
-      - default: 1
-        description: 状态
-        enum:
-        - 0
-        - 1
-        in: body
-        name: state
-        schema:
-          type: integer
+        - description: 文章ID
+          in: body
+          name: id
+          required: true
+          schema:
+            type: integer
+        - description: 文章标题
+          in: body
+          name: title
+          schema:
+            type: string
+        - description: 文章简介
+          in: body
+          name: desc
+          schema:
+            type: string
+        - description: 文章内容
+          in: body
+          name: content
+          schema:
+            type: string
+        - description: 文章缩略图
+          in: body
+          name: cover_image_url
+          schema:
+            type: string
+        - description: 标签ID
+          in: body
+          name: tag_id
+          schema:
+            type: integer
+        - description: 修改者
+          in: body
+          maxLength: 100
+          minLength: 3
+          name: modified_by
+          schema:
+            type: string
+        - default: 1
+          description: 状态
+          enum:
+            - 0
+            - 1
+          in: body
+          name: state
+          schema:
+            type: integer
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: 成功
@@ -311,29 +311,29 @@ paths:
   /api/v1/tags:
     get:
       parameters:
-      - description: 标签名称
-        in: query
-        maxLength: 100
-        name: name
-        type: string
-      - default: 1
-        description: 状态
-        enum:
-        - 0
-        - 1
-        in: query
-        name: state
-        type: integer
-      - description: 页码
-        in: query
-        name: page
-        type: integer
-      - description: 每页数量
-        in: query
-        name: page_size
-        type: integer
+        - description: 标签名称
+          in: query
+          maxLength: 100
+          name: name
+          type: string
+        - default: 1
+          description: 状态
+          enum:
+            - 0
+            - 1
+          in: query
+          name: state
+          type: integer
+        - description: 页码
+          in: query
+          name: page
+          type: integer
+        - description: 每页数量
+          in: query
+          name: page_size
+          type: integer
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: 成功
@@ -350,28 +350,28 @@ paths:
       summary: 获取多个标签
     post:
       parameters:
-      - description: 标签名称
-        in: query
-        maxLength: 100
-        name: name
-        type: string
-      - default: 1
-        description: 状态
-        enum:
-        - 0
-        - 1
-        in: query
-        name: state
-        type: integer
-      - description: 创建者
-        in: body
-        maxLength: 100
-        minLength: 3
-        name: created_by
-        schema:
+        - description: 标签名称
+          in: query
+          maxLength: 100
+          name: name
           type: string
+        - default: 1
+          description: 状态
+          enum:
+            - 0
+            - 1
+          in: query
+          name: state
+          type: integer
+        - description: 创建者
+          in: body
+          maxLength: 100
+          minLength: 3
+          name: created_by
+          schema:
+            type: string
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: 成功
@@ -389,13 +389,13 @@ paths:
   /api/v1/tags/{id}:
     delete:
       parameters:
-      - description: 标签ID
-        in: path
-        name: id
-        required: true
-        type: integer
+        - description: 标签ID
+          in: path
+          name: id
+          required: true
+          type: integer
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: 成功
@@ -412,33 +412,33 @@ paths:
       summary: 删除标签
     put:
       parameters:
-      - description: 标签ID
-        in: path
-        name: id
-        required: true
-        type: integer
-      - description: 标签名称
-        in: query
-        maxLength: 100
-        name: name
-        type: string
-      - default: 1
-        description: 状态
-        enum:
-        - 0
-        - 1
-        in: query
-        name: state
-        type: integer
-      - description: 修改者
-        in: body
-        maxLength: 100
-        minLength: 3
-        name: modified_by
-        schema:
+        - description: 标签ID
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: 标签名称
+          in: query
+          maxLength: 100
+          name: name
           type: string
+        - default: 1
+          description: 状态
+          enum:
+            - 0
+            - 1
+          in: query
+          name: state
+          type: integer
+        - description: 修改者
+          in: body
+          maxLength: 100
+          minLength: 3
+          name: modified_by
+          schema:
+            type: string
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: 成功

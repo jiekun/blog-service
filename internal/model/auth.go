@@ -24,5 +24,3 @@ func (a Auth) Get(db *gorm.DB) (Auth, error) {
 	}
 	return auth, nil
 }
-
-

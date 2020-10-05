@@ -5,6 +5,6 @@ package global
 
 import "github.com/jinzhu/gorm"
 
-var(
+var (
 	DBEngine *gorm.DB
 )
