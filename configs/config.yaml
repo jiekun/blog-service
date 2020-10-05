@@ -1,0 +1,43 @@
+Server:
+  RunMode: debug
+  HttpPort: 8001
+  ReadTimeout: 60
+  WriteTimeout: 60
+App:
+  DefaultPageSize: 10
+  MaxPageSize: 100
+  LogSavePath: storage/logs
+  LogFileName: app
+  LogFileExt: .log
+  UploadSavePath: storage/uploads
+  UploadServerUrl: http://localhost:8001/static
+  UploadImageMaxSize: 5  # MB
+  UploadImageAllowExts:
+    - .jpg
+    - .jpeg
+    - .png
+  DefaultContextTimeout: 60
+Database:
+  DBType: mysql
+  Username: blog-service
+  Password: nginx
+  Host: localhost:3306
+  DBName: blog_service
+  TablePrefix: blog_
+  Charset: utf8
+  ParseTime: True
+  MaxIdleConns: 10
+  MaxOpenConns: 30
+JWT:
+  secret: nginx
+  Issuer: blog-service
+  Expire: 7200
+Email:
+  Host: stmp.qq.com
+  Port: 465
+  UserName: 136986560@qq.com
+  Password: test
+  IsSSL: true
+  From: 136986560@qq.com
+  To:
+    - 136986560@qq.com
